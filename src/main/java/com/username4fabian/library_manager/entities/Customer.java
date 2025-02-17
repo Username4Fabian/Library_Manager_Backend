@@ -1,6 +1,7 @@
 package com.username4fabian.library_manager.entities;
 
 import io.micrometer.common.lang.Nullable;
+import jakarta.persistence.Column;
 
 // import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,19 +25,22 @@ public class Customer {
     private String firstName;
     private String lastName;
 
+    @Column(name = "customer_group")
+    private String group;
+
     @OneToOne
     @JoinColumn(name = "book_id")
     @Nullable
-    // @JsonIgnore
     private Book book;
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, Book book) {
+    public Customer(String firstName, String lastName, Book book, String group) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.book = book;
+        this.group = group;
     }
 
     public int getId() {
@@ -69,6 +73,14 @@ public class Customer {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public String getGroup() {
+        return this.group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 
 }
