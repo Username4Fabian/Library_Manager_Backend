@@ -1,5 +1,7 @@
 package com.username4fabian.library_manager.entities;
 
+import io.micrometer.common.lang.Nullable;
+
 // import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -24,6 +26,7 @@ public class Customer {
 
     @OneToOne
     @JoinColumn(name = "book_id")
+    @Nullable
     // @JsonIgnore
     private Book book;
 

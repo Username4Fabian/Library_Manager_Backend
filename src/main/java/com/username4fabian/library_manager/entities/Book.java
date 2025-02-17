@@ -20,14 +20,16 @@ public class Book {
     private String title;
     private int number;
     private Date purchaseDate;
+    private Date borrowDate;
 
     public Book() {
     }
 
-    public Book(String title, int number, Date purchaseDate) {
+    public Book(String title, int number, Date purchaseDate, Date borrowDate) {
         this.title = title;
         this.number = number;
         this.purchaseDate = purchaseDate;
+        this.borrowDate = borrowDate;
     }
 
     public int getId() {
@@ -60,6 +62,14 @@ public class Book {
 
     public void setPurchaseDate(Date purchaseDate) {
         this.purchaseDate = purchaseDate;
+    }
+
+    public Date getBorrowDate() {
+        return this.borrowDate;
+    }
+
+    public void setBorrowDate(Date borrowDate) {
+        this.borrowDate = borrowDate;
     }
 
 }
