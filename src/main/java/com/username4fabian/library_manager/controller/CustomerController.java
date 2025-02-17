@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.username4fabian.library_manager.entities.Customer;
 import com.username4fabian.library_manager.repositories.CustomerRepository;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -28,6 +30,11 @@ public class CustomerController {
     @PostMapping("/DeleteCustomer")
     public void deleteCustomer(@RequestBody Customer customer) {
         customerRepository.delete(customer);
+    }
+
+    @GetMapping("/GetAllCustomers")
+    public Iterable<Customer> getAllCustomers() {
+        return customerRepository.findAll();
     }
 
 }

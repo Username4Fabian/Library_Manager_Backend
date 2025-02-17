@@ -21,15 +21,19 @@ public class Book {
     private int number;
     private Date purchaseDate;
     private Date borrowDate;
+    private String Author;
+    private String category;
 
     public Book() {
     }
 
-    public Book(String title, int number, Date purchaseDate, Date borrowDate) {
+    public Book(String title, int number, Date purchaseDate, Date borrowDate, String Author, String category) {
         this.title = title;
         this.number = number;
         this.purchaseDate = purchaseDate;
         this.borrowDate = borrowDate;
+        this.Author = Author;
+        this.category = category;
     }
 
     public int getId() {
@@ -70,6 +74,22 @@ public class Book {
 
     public void setBorrowDate(Date borrowDate) {
         this.borrowDate = borrowDate;
+    }
+
+    public String getAuthor() {
+        return this.Author;
+    }
+
+    public void setAuthor(String Author) {
+        this.Author = Author;
+    }
+
+    public String getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
 }

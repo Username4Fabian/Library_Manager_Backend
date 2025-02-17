@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.username4fabian.library_manager.entities.Book;
 import com.username4fabian.library_manager.repositories.BookRepository;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -27,9 +31,15 @@ public class BookController {
         return bookRepository.saveAll(books);
     }
 
-    @PostMapping("/DeleteBook")
-    public void deleteBook(@RequestBody Book book) {
-        bookRepository.delete(book);
+    @DeleteMapping("/DeleteBook/{bookId}")
+    public void deleteBook(@PathVariable int bookId) {
+        bookRepository.deleteById(bookId);
+    }
+
+    @GetMapping("/GetAllBooks")
+    public Iterable<Book> getAllBooks() {
+        Iterable<Book> books = bookRepository.findAll();
+        return books;
     }
 
 }
