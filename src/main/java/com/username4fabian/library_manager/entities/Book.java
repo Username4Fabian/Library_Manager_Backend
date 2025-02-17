@@ -17,23 +17,29 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    private String number;
     private String title;
-    private int number;
-    private Date purchaseDate;
-    private Date borrowDate;
+    private String publisher;
     private String Author;
     private String category;
+    private String summary;
+    private Date purchaseDate;
+    private Date borrowDate;
 
     public Book() {
     }
 
-    public Book(String title, int number, Date purchaseDate, Date borrowDate, String Author, String category) {
-        this.title = title;
+    public Book(String number, String title, String publisher, String Author, String category, Date purchaseDate,
+            Date borrowDate, String summary) {
         this.number = number;
-        this.purchaseDate = purchaseDate;
-        this.borrowDate = borrowDate;
+        this.title = title;
+        this.publisher = publisher;
         this.Author = Author;
         this.category = category;
+        this.purchaseDate = purchaseDate;
+        this.borrowDate = borrowDate;
+        this.summary = summary;
     }
 
     public int getId() {
@@ -44,6 +50,14 @@ public class Book {
         this.id = id;
     }
 
+    public String getNumber() {
+        return this.number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -52,12 +66,28 @@ public class Book {
         this.title = title;
     }
 
-    public int getNumber() {
-        return this.number;
+    public String getPublisher() {
+        return this.publisher;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getAuthor() {
+        return this.Author;
+    }
+
+    public void setAuthor(String Author) {
+        this.Author = Author;
+    }
+
+    public String getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Date getPurchaseDate() {
@@ -76,20 +106,12 @@ public class Book {
         this.borrowDate = borrowDate;
     }
 
-    public String getAuthor() {
-        return this.Author;
+    public String getSummary() {
+        return this.summary;
     }
 
-    public void setAuthor(String Author) {
-        this.Author = Author;
-    }
-
-    public String getCategory() {
-        return this.category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
 }
